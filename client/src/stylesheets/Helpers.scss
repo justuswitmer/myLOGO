@@ -1,0 +1,257 @@
+$colors: (
+  "BLUE": "#0E5CBF",
+  "LIGHT_BLUE": "#B6C8DD",
+  "WHITE": "#fff",
+  "GREEN": "#3B9400",
+  "YELLOW": "#E08B0A",
+  "RED": "#B04830",
+  "GREY": "#EEF2F7",
+  "BLACK": "#000000",
+);
+
+$sides: (top, bottom, left, right);
+
+$pixel: 0;
+@while $pixel <= 200 {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$pixel} {
+      margin-#{$side}: #{$pixel}px !important;
+    }
+
+    .m-a-#{$pixel} {
+      margin: #{$pixel}px !important;
+    }
+
+    .-m-#{str-slice($side, 0, 1)}-#{$pixel} {
+      margin-#{$side}: -#{$pixel}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$pixel} {
+      padding-#{$side}: #{$pixel}px !important;
+    }
+
+    .p-a-#{$pixel} {
+      padding: #{$pixel}px !important;
+    }
+  }
+  .font-size-#{$pixel} {
+    font-size: #{$pixel}px !important;
+  }
+
+  .line-height-#{$pixel} {
+    line-height: #{$pixel}px !important;
+  }
+  $pixel: $pixel + 1;
+}
+
+@each $side in $sides {
+  @each $name, $color in $colors {
+    .border-#{str-slice($side, 0, 1)}-#{$name} {
+      border-#{$side}: 1px solid #{$color};
+    }
+
+    .border-#{$name} {
+      border: 1px solid #{$color};
+    }
+  }
+}
+
+.box-shadow-none {
+  box-shadow: none !important;
+}
+.border-radius-28 {
+  border-radius: 28px !important;
+}
+.border-radius-24 {
+  border-radius: 24px !important;
+}
+
+.border-radius-8 {
+  border-radius: 8px !important;
+}
+
+.border-radius-10 {
+  border-radius: 10px !important;
+}
+
+.border-bottom-light-blue {
+  border-bottom: 1px solid #ccd5e0 !important;
+}
+
+.border-bottom-blue {
+  border-bottom: 1px solid #0e5cbf !important;
+}
+
+.border-top-light-blue {
+  border-top: 1px solid #ccd5e0 !important;
+}
+
+.border-top-blue {
+  border-top: 1px solid #0e5cbf !important;
+}
+
+.border-blue {
+  border: 1px solid #0e5cbf !important;
+}
+
+.border-blue-thick {
+  border: 2px solid #0e5cbf !important;
+}
+
+.border-brown-thick {
+  border: 2px solid #d4c2af !important;
+}
+
+.border-light-blue {
+  border: 1px solid #b6c8dd !important;
+}
+
+.border-radius-right-none {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.border-radius-left-none {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+// COLORS
+
+.text-white {
+  color: white !important;
+}
+
+.text-black {
+  color: black !important;
+}
+
+.text-blue {
+  color: #0e5cbf !important;
+}
+.text-light-blue {
+  color: #b6c8dd !important;
+}
+.text-light-green {
+  color: #498b22 !important;
+}
+.text-green {
+  color: #3b9400 !important;
+}
+.text-light-orange {
+  color: #b07700 !important;
+}
+
+.text-red {
+  color: #b30000 !important;
+}
+
+.text-light-purple {
+  color: #7364d0 !important;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
+.bg-green {
+  background-color: #3b9400 !important;
+}
+
+.bg-almost-white {
+  background-color: #e5e5e5;
+}
+
+.bg-light-grey {
+  background-color: #eef2f7 !important;
+}
+
+.bg-medium-grey {
+  background-color: #ccd5e0 !important;
+}
+
+.bg-blue {
+  background-color: #0e5cbf !important;
+}
+
+.bg-brown {
+  background-color: #d4c2af !important;
+}
+
+.bg-light-blue {
+  background-color: #b6c8dd !important;
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(180deg, #0e5cbf66 38.54%, #eef2f736 63.54%, transparent 100%);
+}
+//TYPOGRAPHY
+.text-bold {
+  font-weight: 600 !important;
+}
+
+.text-left-align {
+  text-align: left;
+}
+
+.text-right-align {
+  text-align: right;
+}
+
+.text-center-align {
+  text-align: center;
+}
+
+.text-font-fam-colfax-thin {
+  font-family: Colfax Thin !important;
+}
+
+.text-font-fam-colfax-light {
+  font-family: Colfax Light !important;
+}
+
+.text-font-fam-colfax-medium {
+  font-family: Colfax Medium !important;
+}
+
+.text-font-fam-colfax-medium-italic {
+  font-family: Colfax Medium Italic !important;
+}
+
+.text-font-fam-colfax-regular {
+  font-family: Colfax Regular !important;
+}
+
+.text-font-fam-colfax-bold {
+  font-family: Colfax Bold !important;
+}
+
+//LAYOUT
+
+.fill-width {
+  width: 100% !important;
+}
+
+.fill-height {
+  height: 100% !important;
+}
+
+.margin-auto {
+  margin: auto !important;
+}
+.m-t-a {
+  margin-top: auto !important;
+}
+.m-b-a {
+  margin-bottom: auto !important;
+}
+.m-l-a {
+  margin-left: auto !important;
+}
+.m-r-a {
+  margin-right: auto !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
