@@ -10,10 +10,11 @@ import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 
 import styled from "styled-components";
-import { authorize, registerUser } from "../../services";
+import { authorize, getLogos } from "../../services";
 import { ROUTES } from "../../constants/routes";
-import { getIsAuthorized } from "../store/selectors";
+import { getIsAuthorized, getUserId } from "../store/selectors";
 import withLocalContext from "../store/withLocalContext";
+import { loadLogos } from "../store/actions";
 
 const StyledButton = styled(Button)`
   font-size: 16px !important;
@@ -27,7 +28,7 @@ const StyledTextfield = styled(TextField)`
  }
 `;
 
-export const LoginPage = ({ context: { state } }) => {
+export const LoginPage = ({ context: { dispatch } }) => {
   const navigate = useNavigate();
   const [invalidLogin, setInvalidLogin] = useState(false);
   const [password, setPassword] = useState();
@@ -53,10 +54,11 @@ export const LoginPage = ({ context: { state } }) => {
     e.preventDefault();
     try {
       setShowSpinner(true);
-      // const res = await authorize({ password, username: "admin" });
       const res = await authorize({ password, username });
       await storeData(res);
-      navigate(window.history.state.url);
+      let logoRes = await getLogos({ _id: getUserId() });
+      await dispatch(loadLogos(logoRes.data));
+      navigate(ROUTES.LANDING_PAGE);
     } catch (error) {
       setShowSpinner(false);
       setInvalidLogin(true);

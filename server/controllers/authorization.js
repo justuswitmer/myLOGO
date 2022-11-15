@@ -16,7 +16,7 @@ const authorizeUser = async (req, res, next) => {
     );
 
     if (doesPasswordMatch) {
-      res.send({ username: authorizedUser.username });
+      res.send({ username: authorizedUser.username, _id: authorizedUser._id });
     }
     else {
       res.status(401).send({
@@ -39,9 +39,11 @@ const registerUser = async (req, res, next) => {
     const myHashedPassword = await bcrypt.hash(myPlaintextPassword, saltRounds);
 
     const userRes = await UserModel.create({ username: register.username, password: myHashedPassword })
-    const logoRes = await LogoModel.create({ userId: userRes._id, logos: LOGOS });
-    const payloadRes = { user: userRes, logos: logoRes }
-    res.send(payloadRes);
+    await LogoModel.create({ userId: userRes._id, logos: LOGOS });
+
+    console.log('payloadRes', userRes);
+
+    res.send(userRes);
   } catch (err) {
     next(err);
   }

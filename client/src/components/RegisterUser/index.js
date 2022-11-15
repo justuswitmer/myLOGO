@@ -27,7 +27,7 @@ const StyledTextfield = styled(TextField)`
  }
 `;
 
-export const LoginPage = ({ context: { dispatch } }) => {
+export const RegisterPage = ({ context: { dispatch } }) => {
   const navigate = useNavigate();
   const [invalidLogin, setInvalidLogin] = useState(false);
   const [password, setPassword] = useState();
@@ -54,8 +54,7 @@ export const LoginPage = ({ context: { dispatch } }) => {
     try {
       setShowSpinner(true);
       const res = await registerUser({ password, username });
-      await storeData(res.data.user);
-      dispatch(loadLogos(res.data.logos.logos));
+      await storeData(res.data);
       navigate(ROUTES.LANDING_PAGE);
     } catch (error) {
       setShowSpinner(false);
@@ -125,4 +124,4 @@ export const LoginPage = ({ context: { dispatch } }) => {
   );
 };
 
-export default withLocalContext(LoginPage);
+export default withLocalContext(RegisterPage);

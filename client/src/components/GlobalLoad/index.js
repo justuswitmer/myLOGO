@@ -1,13 +1,13 @@
 import withLocalContext from "../store/withLocalContext";
 import { useEffect } from "react";
 import { getIsAuthorized, getUserId } from "../store/selectors";
-import { loadLogos } from "../store/actions";
+import { loadLogos, waitingForLogos } from "../store/actions";
 import { getLogos } from "../../services";
 
 export const GlobalLoad = ({ context: { state, dispatch } }) => {
 
   useEffect(() => {
-    setGlobalState();
+    // setGlobalState();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -17,6 +17,7 @@ export const GlobalLoad = ({ context: { state, dispatch } }) => {
 
         let logoRes = await getLogos({ _id: getUserId() });
         dispatch(loadLogos(logoRes.data));
+        dispatch(waitingForLogos(false))
       }
 
     } catch (err) {

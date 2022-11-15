@@ -7,3 +7,8 @@ export const loadLogos = (payload) => ({
   type: "load_logos",
   payload,
 });
+
+export const waitingForLogos = (payload) => ({
+  type: "waiting_for_logos",
+  payload,
+});
