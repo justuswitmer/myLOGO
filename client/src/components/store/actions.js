@@ -8,7 +8,7 @@ export const loadLogos = (payload) => ({
   payload,
 });
 
-export const waitingForLogos = (payload) => ({
-  type: "waiting_for_logos",
+export const editGallery = (payload) => ({
+  type: "edit_gallery",
   payload,
 });

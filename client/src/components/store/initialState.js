@@ -1,4 +1,4 @@
 export const initialState = {
   logos: [],
-  areLogosLoading: true
+  editGallery: false
 };

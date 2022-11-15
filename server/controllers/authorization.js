@@ -41,8 +41,6 @@ const registerUser = async (req, res, next) => {
     const userRes = await UserModel.create({ username: register.username, password: myHashedPassword })
     await LogoModel.create({ userId: userRes._id, logos: LOGOS });
 
-    console.log('payloadRes', userRes);
-
     res.send(userRes);
   } catch (err) {
     next(err);

@@ -13,7 +13,6 @@ import styled from "styled-components";
 import { registerUser } from "../../services";
 import { ROUTES } from "../../constants/routes";
 import withLocalContext from "../store/withLocalContext";
-import { loadLogos } from "../store/actions";
 
 const StyledButton = styled(Button)`
   font-size: 16px !important;

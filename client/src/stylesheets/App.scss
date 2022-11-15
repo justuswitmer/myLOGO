@@ -1,239 +1,79 @@
 @import "./Helpers.scss";
 @import "./Mixins.scss";
 
+// Kanit font
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@900&display=swap");
+
+// Montserrat font
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700;900&display=swap");
 .App {
-  padding-top: 56px;
-  @include respond-to(medium) {
-    padding-top: 100px;
-  }
   text-align: center;
   font-family: "Colfax";
   height: 100vh;
-
-  #address-lookup::placeholder {
-    opacity: 1;
-  }
-
-  .MuiButton-contained.Mui-disabled {
-    opacity: 0.5;
-  }
-
-  .css-1d3ml05-MuiPopper-root-MuiTooltip-popper {
-    z-index: 5000 !important;
-  }
-
-  .MuiTooltip-tooltip {
-    background-color: #b6c8dd;
-    color: black;
-    font-size: 16px;
-    font-family: "COLFAX REGULAR";
-    padding: 30px;
-  }
-
-  .MuiTooltip-arrow {
-    color: #b6c8dd !important;
-    overflow: visible;
-    position: absolute !important;
-    bottom: -28px !important;
-    width: 50px;
-    height: 50px;
-    z-index: -1;
-  }
-
-  .MuiTooltip-tooltipPlacementTop {
-    margin-bottom: 24px !important;
-  }
-
-  .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
-    padding: 6px;
-    height: 45px;
-    @include respond-to(medium) {
-      padding: 9px;
-      height: 75px;
-      margin-top: 0;
-    }
-  }
-
-  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon
-    .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
-    padding-right: 35px;
-  }
-
-  .MuiOutlinedInput.notchedOutline {
-    border-color: red !important;
-  }
-
-  .MuiInputBase-input::placeholder {
-    color: #b6c8dd;
-  }
-
-  .top_section .MuiSelect-root {
-    span:after {
-      content: "Age of roof";
-      color: #000000;
-    }
-  }
-
-  .top_section > div .MuiOutlinedInput-notchedOutline {
-    border-color: transparent !important;
-  }
-
-  .top_section .address_input {
-    max-width: 470px;
-  }
-
-  .MuiAppBar-root {
-    z-index: 4000;
-  }
-
-  // TYPOGRAPHY
-  h1 {
-    font-size: 20px;
-    line-height: 25px;
-    @include respond-to(medium) {
-      font-size: 45px;
-      line-height: 42px;
-    }
-  }
-
-  .single-article {
-    a {
-      font-size: 14px;
-      @include respond-to(small) {
-        font-size: 16px;
-      }
-    }
-    img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    figure {
-      width: 100%;
-      margin: 0;
-    }
-
-    strong {
-      font-weight: normal;
-    }
-
-    h2,
-    h3 {
-      font-family: "Colfax Medium";
-    }
-    h2 {
-      font-size: 30px;
-    }
-
-    h3 {
-      font-size: 24px;
-    }
-
-    p {
-      // display: inline;
-      font-size: 16px;
-      line-height: 35px;
-      font-family: "Colfax Regular";
-      a {
-        color: #0e5cbf;
-        font-family: Colfax Medium;
-        font-size: 16px;
-      }
-      strong {
-        font-family: Colfax Medium;
-      }
-    }
-    ul {
-      li {
-        line-height: 35px;
-      }
-    }
-  }
-
-  .reporting {
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      padding: 15px;
-    }
-  }
-
-  .Admin {
-    padding-top: 122px;
-  }
-}
-
-ul[role="listbox"] {
-  padding: 0 !important;
-}
-
-#menu- {
-  z-index: 5000 !important;
-}
-
-.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-left-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.MuiAutocomplete-noOptions {
-  visibility: hidden;
-  &::after {
-    content: "Avoid abbreviations";
-    position: absolute;
-    left: 15px;
-    visibility: visible;
-  }
+  padding: 0 100px;
+  font-family: Montserrat, sans-serif;
 }
 
 iframe {
   display: none;
 }
 
-.sq-card-component {
-  display: block !important;
+header {
+  span {
+    font-family: "Kanit", sans-serif;
+    font-size: 40px;
+    text-decoration: underline;
+    text-decoration-color: #d92026;
+  }
+  height: 100px;
+  padding: 20px 0;
+}
+
+button {
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #231f20;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: 1px solid #c1c1c1;
+  cursor: pointer;
+  &:hover {
+    background-color: #d92026;
+    border-color: #d92026;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.logo-container {
+  > div {
+    border: 1px solid #e8e6e6c8;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: -2px -2px 8px #e8e6e6c8;
+    position: relative;
+  }
+}
+
+img {
+  transition: 3s ease;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+}
+
+input {
+  height: 40px;
+  font-size: 18px;
+  padding: 0 10px;
+  margin-right: 5px;
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #d92026;
+  }
 }
