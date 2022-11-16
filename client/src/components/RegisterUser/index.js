@@ -20,6 +20,7 @@ const StyledInput = styled.input`
   }
 `;
 
+
 export const RegisterPage = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState();

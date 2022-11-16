@@ -17,4 +17,5 @@ async function startServer() {
     console.log(`Your server is ready on port:${config.port} `);
   });
 }
+
 startServer();
