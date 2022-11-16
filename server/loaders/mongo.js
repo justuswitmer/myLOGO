@@ -12,6 +12,8 @@ export default async () => {
   },
     () => {
       console.log("MONGODB is connected!!");
+      console.log(uri);
+
     });
 
 
