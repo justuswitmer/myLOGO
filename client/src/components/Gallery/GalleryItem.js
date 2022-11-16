@@ -72,6 +72,7 @@ const GalleryItem = ({ context: { state, dispatch }, url, isEdit }) => {
     newLogoState.splice(newLogoState.indexOf(logoRes.data.url), 1);
     dispatch(loadLogos([...newLogoState]));
   }
+
   return (
     <Grid item xs={12}>
       {isEdit && <StyledSpan onClick={() => showConfirm()}>-</StyledSpan>}
