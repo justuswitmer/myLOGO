@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
 import Backdrop from "@material-ui/core/Backdrop";
 import moment from "moment";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import AsyncLocalStorage from "@createnextapp/async-local-storage";
 
 import { Navigate, useNavigate } from "react-router-dom";
-import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 
 import styled from "styled-components";
@@ -15,17 +13,13 @@ import { ROUTES } from "../../constants/routes";
 import { getIsAuthorized, getUserId } from "../store/selectors";
 import withLocalContext from "../store/withLocalContext";
 import { loadLogos } from "../store/actions";
+import { ButtonAsLink } from "../Common/ButtonAsLink";
 
-const StyledButton = styled(Button)`
-  font-size: 16px !important;
-  font-family: Colfax Medium;
-  max-width: 200px;
-`;
-
-const StyledTextfield = styled(TextField)`
- > .MuiInputBase-root {
+const StyledInput = styled.input`
   margin-top: 36px !important;
- }
+  @media (max-width: 600px) {
+    width: 75%;
+  }
 `;
 
 export const LoginPage = ({ context: { dispatch } }) => {
@@ -70,7 +64,7 @@ export const LoginPage = ({ context: { dispatch } }) => {
   }
 
   return (
-    <form onSubmit={onSubmit} className="fill-height">
+    <form onSubmit={onSubmit}>
       <Backdrop open={showSpinner} onClick={() => setShowSpinner(false)}>
         <CircularProgress />
       </Backdrop>
@@ -82,7 +76,10 @@ export const LoginPage = ({ context: { dispatch } }) => {
         spacing={3}
       >
         <Grid item xs={12}>
-          <StyledTextfield
+          <h1>Login Page</h1>
+        </Grid>
+        <Grid item xs={12}>
+          <StyledInput
             label="Username"
             type="username"
             autoComplete="current-username"
@@ -90,7 +87,7 @@ export const LoginPage = ({ context: { dispatch } }) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <StyledTextfield
+          <StyledInput
             label="Password"
             type="password"
             autoComplete="current-password"
@@ -98,27 +95,17 @@ export const LoginPage = ({ context: { dispatch } }) => {
           />
         </Grid>
         <Grid container item xs={12} justifyContent={"center"} spacing={2}>
-          <Grid item xs={3}>
-            <StyledButton
-              className="fill-width"
-              variant="contained"
-              color="secondary"
-              size="large"
+          <Grid container item xs={6} md={3} justifyContent={"center"}>
+            <ButtonAsLink
               onClick={() => navigate(ROUTES.REGISTER)}
-            >
-              Not a user? Register
-            </StyledButton>
+              text="Go to register user"
+            />
           </Grid>
-          <Grid item xs={3}>
-            <StyledButton
-              className="fill-width"
-              variant="contained"
-              color="primary"
-              size="large"
+          <Grid container item xs={6} md={3} justifyContent={"center"}>
+            <ButtonAsLink
               type="submit"
-            >
-              Login
-            </StyledButton>
+              text="Login"
+            />
           </Grid>
         </Grid>
         {invalidLogin && (

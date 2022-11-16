@@ -1,5 +1,5 @@
 import { Grid } from "@material-ui/core";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { removeLogo } from "../../services";
 import { loadLogos } from "../store/actions";
@@ -75,7 +75,7 @@ const GalleryItem = ({ context: { state, dispatch }, url, isEdit }) => {
   return (
     <Grid item xs={12}>
       {isEdit && <StyledSpan onClick={() => showConfirm()}>-</StyledSpan>}
-      <Grid container justifyContent="center" alignContent="center" item xs={12}>
+      <Grid style={{ minHeight: 120 }} container justifyContent="center" alignContent="center" item xs={12}>
         <img alt={""} className={url === "" ? "opacity0" : "opacity100"} src={`${url !== "" ? `https://logo.clearbit.com/${url}` : ""}`} />
       </Grid>
       <StyledConfirm isshown={String(isShown)}>

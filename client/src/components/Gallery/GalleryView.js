@@ -1,5 +1,3 @@
-import { Navigate } from "react-router-dom";
-import { ROUTES } from "../../constants/routes";
 import { getIsAuthorized, getUserId } from "../store/selectors";
 import withLocalContext from "../store/withLocalContext";
 import GalleryItem from "./GalleryItem";
@@ -85,7 +83,7 @@ const GalleryView = ({ context: { state, dispatch } }) => {
     return () => clearInterval(interval);
   }, [advance]);
 
-  return (getIsAuthorized() ?
+  return (
     <Fragment>
       {logosArr.map((item, i) => (
         <LogoContainer
@@ -97,7 +95,6 @@ const GalleryView = ({ context: { state, dispatch } }) => {
         />
       ))}
     </Fragment>
-    :
-    <Navigate to={ROUTES.LOGIN_IN} />)
+  )
 }
 export default withLocalContext(GalleryView);

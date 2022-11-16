@@ -33,6 +33,7 @@ const StyledChildDiv = styled.div`
   transition: .3s;
   background-color: #1010103b;
   backdrop-filter: blur(6px);
+  z-index: 4001;
   position: absolute;
   display: flex;
   top: 50%;
@@ -49,11 +50,15 @@ const StyledChildDiv = styled.div`
     background-color: #89b089;
     border-radius: 5px;
     padding: 0 50px;
+    @media (max-width: 600px) {
+      width: 95%;
+      padding: 0 10px;
+    }
   }
   `: `
-  opacity: 0;
-  width: 50px;
-  height: 50px;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
   `}
 
   & span {
@@ -65,9 +70,11 @@ const StyledChildDiv = styled.div`
     margin-right: -20px;
     transition: .3s;
     &:hover {
-
       cursor: pointer;
       transform: scale(1.2);
+    }
+    @media (max-width: 600px) {
+      margin-right: 0;
     }
   }
 `;
@@ -138,9 +145,14 @@ const AddLogo = ({ context: { state, dispatch } }) => {
             <h2>Add a logo</h2>
             <p>Type in the domain of the company logo you wish to find</p>
           </Grid>
-          <Grid item xs={12} >
+          <Grid item xs={12} container justifyContent="center">
             <input placeholder="e.g. target.com" value={initLogoUrl} onChange={(val) => setInitLogoUrl(val.target.value)} />
-            <button onClick={() => findLogo()}>{isLoading ? "Searching" : "Find Logo"}</button>
+            <button
+              className="link"
+              onClick={() => findLogo()}
+            >
+              {isLoading ? "Searching" : "Find Logo"}
+            </button>
           </Grid>
           {showNoImage &&
             <Grid item xs={12}>
