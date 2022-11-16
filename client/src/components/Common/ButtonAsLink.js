@@ -18,6 +18,7 @@ flex-direction: column;
   }
 }
 `;
+
 export const ButtonAsLink = ({ text, onClick, isDisabled, type }) => {
 
   return <StyledSpan>
