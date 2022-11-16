@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import UserModel from "../models/api/user";
 import LogoModel from "../models/api/logos";
