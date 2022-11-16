@@ -67,6 +67,7 @@ const updateUser = async (req, res, next) => {
   try {
     const saltRounds = 10;
     let myHashedPassword = "";
+
     if (user.password !== "") {
       myHashedPassword = await bcrypt.hash(user.password, saltRounds);
     }
