@@ -14,6 +14,7 @@ export default async () => {
       console.log("MONGODB is connected!!");
     });
 
+
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'Mongodb connection error:'));
 };
