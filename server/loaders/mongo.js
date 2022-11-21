@@ -15,6 +15,9 @@ export default async () => {
 
     });
 
+  console.log('uri', uri);
+
+
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'Mongodb connection error:'));
 };
